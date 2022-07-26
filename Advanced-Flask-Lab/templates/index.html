@@ -4,7 +4,7 @@
 		<title>Instagram</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}} "/>
 	</head>
 	<body>
 
@@ -15,7 +15,7 @@
 					<header id="header">
 						<span class="avatar"><img src="{{url_for('static',filename='images/avatar.jpg')}}" alt="" /></span>
 
-            <h1>Description</h1>
+            <h1>{{user_bio}}</h1>
             <br>
             <!-- About me button -->
             <a href="#"><button style="color:white;width:40%" >More about me</button></a>
@@ -38,12 +38,12 @@
                 
                 <div>
                       <a href="">
-                        <img src="static/images/thumbs/01.jpg" alt="" />
+                        <img src={{image_link}} alt="" />
                         <h3>Caption... blah blah blah</h3>
                       </a>
                 
                       <a href="">
-                        <img src="url_for('static',filename='images/thumbs/02.jpg')" alt="" />
+                        <img src="{{url_for('static',filename='images/thumbs/02.jpg')}}" alt="" />
                         <h3>Caption... blah blah blah</h3>
                       </a>
                 </div>    
@@ -57,6 +57,15 @@
 							</section>
 
 					</section>
+<!-- Posts -->
+					{% for post in posts %}
+					<div = class="posts">
+						  <a href="">
+							<img src="{{post}}" alt="" />
+							<h3>{{posts[post]}}</h3>
+						  </a>
+					</div>
+					{% endfor %}
 
 				<!-- Footer -->
 					<footer id="footer">
